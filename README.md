@@ -1,5 +1,5 @@
 # vb-net
-//C# Program to print a Binary triangle <br>
+1.//C# Program to print a Binary triangle <br>
 using System;
 
 namespace ex1 <br>
@@ -27,10 +27,10 @@ namespace ex1 <br>
         }<br>
     }<br>
 }<br>
-![image](https://user-images.githubusercontent.com/97940332/154630295-8cb45046-0155-4f1b-aa0d-5105d8c3568f.png)
+![image](https://user-images.githubusercontent.com/97940332/154631843-cabcb888-1532-4f2f-bed3-253ad3a612d3.png)
 
 
-//C# Program to Check Whether the Entered Number is an Amicable Number or Not.
+2.//C# Program to Check Whether the Entered Number is an Amicable Number or Not.
 using System;
 
 namespace ex2<br>
@@ -65,9 +65,212 @@ namespace ex2<br>
         }<br>
     }<br>
 }<br>
+![image](https://user-images.githubusercontent.com/97940332/154632095-30232a1e-0c1a-42a8-8513-d3dcffee1c82.png)
+![image](https://user-images.githubusercontent.com/97940332/154632183-5baa4312-fa57-4bf0-96b8-368ee620dabd.png)
+3.//C# Program to Illustrate multilevel inheritence with virtual methods  (displaying student details).
+using System;
 
-![image](https://user-images.githubusercontent.com/97940332/154629998-708d3c58-1242-4703-8af7-92079a38064e.png)
-![image](https://user-images.githubusercontent.com/97940332/154630103-b4939130-b098-43ca-ace4-5045269d34d0.png)
+namespace ex3<br>
+{<br>
+    class PersonalDetails<br>
+    {<br>
+        string name;<br>
+        int age;<br>
+        string gender;<br>
+        public PersonalDetails(string name, int age, string gender)<br>
+        {<br>
+            this.name = name;<br><br>
+            this.age = age;<br>
+            this.gender = gender;<br>
+        }<br>
+        public virtual void display()<br>
+        {<br>
+            Console.WriteLine("\n----------PERSONAL DETAILS------------\n");<br>
+            Console.WriteLine("Name     :" + name);<br><br>
+            Console.WriteLine("Age      :" + age);<br>
+            Console.WriteLine("Gender   :" + gender);<br>
+        }<br>
+    }<br>
+    class CourseDetails : PersonalDetails<br>
+    {<br>
+        int regno;<br>
+        string course;<br>
+        int semester;<br>
+        public CourseDetails(string name, int age, string gender, int regno, string course, int semester) : base(name, age, gender)<br>
+        {<br>
+            this.regno = regno;<br>
+            this.course = course;<br>
+            this.semester = semester;<br>
+        }<br>
+
+        public override void display()<br>
+        {<br>
+            base.display();<br>
+            Console.WriteLine("\n---------COURSE DETAILS------------\n");<br>
+            Console.WriteLine("Register Number:" + regno);<br>
+            Console.WriteLine("Course         :" + course);<br>
+            Console.WriteLine("Semester       :" + semester);<br>
+        }<br>
+    }<br>
+
+    class MarksDetails : CourseDetails<br>
+    {<br>
+        int[] marks = new int[5];<br>
+        int total;<br>
+        float average;<br>
+        string grade;<br>
+        int flagFail;<br>
+        public MarksDetails(string name, int age, string gender, int regno, string course, int semester, int[] marks) : base(name, age, gender, regno, course, semester)<br>
+        {<br>
+            total = 0;<br>
+            for (int i = 0; i < 5; i++)<br>
+            { <br>this.marks[i] = marks[i];<br>
+                total += marks[i];<br>
+                if (marks[i] < 35)<br>
+                {<br>
+                    flagFail = 1;<br>
+                }<br>
+            }<br>
+            Calculate();<br>
+        }<br>
+        private void Calculate()<br>
+        {<br>
+            average = total/5;<br>
+            if (flagFail == 1 || average < 40)<br>
+                grade = "Fail";<br>
+            else if (average >= 70)<br>
+                grade = "Distinction";<br>
+            else if (average >= 60)<br>
+                grade = "First class";<br>
+            else if (average >= 50)<br>
+                grade = "Second class";<br>
+            else grade = "Pass class";<br>
+        }<br>
+        public override void display()<br>
+        {<br>
+            base.display();<br>
+            Console.WriteLine("\n------------MARKS DETAILS-------------\n");<br>
+            Console.WriteLine("Marks in 5 subjects:");<br>
+            for (int i = 0; i < 5; i++)<br>
+                Console.WriteLine(marks[i] + "    ");<br>
+            Console.WriteLine();<br>
+            Console.WriteLine("Total    :" + total);<br>
+            Console.WriteLine("Average  :" + average);<br>
+            Console.WriteLine("Grade    :" + grade);<br>
+        }<br>
+    }<br>
+    class Multilevel<br>
+    {<br>
+        public static void Main(String[] args)<br>
+        {<br>
+            MarksDetails student = new MarksDetails("Abijith", 22, "Male", 2021001, "M.Sc", 5, new int[] { 77, 80, 98, 95, 90 });<br>
+            student.display();<br>
+        }<br>
+      }<br>
+    }<br>
+     ![image](https://user-images.githubusercontent.com/97940332/154631537-967c59f3-6374-46ea-b0c8-353f167d84ec.png)
+    4.//C# Program to Create a Gray code
+    using System;
+
+namespace ex4<br>
+{<br>
+    class GrayCode<br>
+    {<br>
+        static int getGray(int n)<br>
+        {<br>
+            return n ^ (n >> 1);<br>
+        }<br>
+        static void Main(string[] args)<br>
+        {<br>
+            int Inputnum, Graynum;<br>
+            Console.Write("\nEnter thr decimal number:");<br>
+            Inputnum = Convert.ToInt32(Console.ReadLine());<br>
+            Console.WriteLine("\nBinary equivalent of {0}: {1}", Inputnum, Convert.ToString(Inputnum, 2));<br>
+            Graynum = getGray(Inputnum);<br>
+            Console.WriteLine("\n Gray code equivalent of {0}:{1}",Inputnum,Convert.ToString(Graynum,2));<br>
+        }<br>
+    }<br>
+}<br>
+![image](https://user-images.githubusercontent.com/97940332/154633208-69079708-76f8-4520-a498-13545af1eb86.png)
+
+5.//C# program to calculate volume of 2 boxes and find the resultant volume after addition of 2 boxes by implementing operator overloading.
+using System;
+
+namespace ex5<br>
+{<br>
+    class Box<br>
+    {<br>
+        float width;<br>
+        float height;<br>
+        float length;<br>
+        public float Volume<br>
+        {<br>
+            get { return width * height * length; }<br>
+        }<br>
+        public Box(float width,float height,float length)<br>
+        { <br>
+            this.width = width;<br>
+            this.height = height;<br>
+            this.length = length;<br>
+        }<br>
+        public static float operator+(Box box1,Box box2)<br>
+        {<br>
+            return box1.Volume + box2.Volume;<br>
+        }<br>
+        public override string ToString()<br>
+        {<br>
+            return "Box with width " + width + ",height " + height + " and length " + length;<br>
+        }<br>
+       
+    }<br>
+    class OperatorOverloading<br>
+    {<br>
+        public static void Main()<br>
+        {<br>
+            Box box1 = new Box(10,20,30);<br>
+            Box box2 = new Box(25,32,15);<br>
+            Console.WriteLine("Volume of {0} is:{1} ", box1, box1.Volume);<br>
+            Console.WriteLine("Volume of {0} is:{1} ", box2, box2.Volume);<br>
+            Console.WriteLine("Volume after adding boxes:{0} ", box1 + box2);<br>
+        }<br>
+    }<br>
+}<br>
+![image](https://user-images.githubusercontent.com/97940332/154633872-d548148e-0658-4e2d-a431-92600e16f3fc.png)
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+    
 
 
 
