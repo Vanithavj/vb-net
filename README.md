@@ -310,7 +310,7 @@ namespace ex6<br>
                }<br>
              }<br>
            }<br>
-           ![image](https://user-images.githubusercontent.com/97940332/154636098-361d57e9-1cd5-456b-ab9e-0ab89d6decf1.png)
+![image](https://user-images.githubusercontent.com/97940332/154636098-361d57e9-1cd5-456b-ab9e-0ab89d6decf1.png)
 ![image](https://user-images.githubusercontent.com/97940332/154636200-2de71c06-b38f-4207-a810-56b2496f40ad.png)
 
 
