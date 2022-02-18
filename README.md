@@ -1,7 +1,7 @@
 # vb-net
-1.//C# Program to print a Binary triangle <br>
-using System;
+**1.//C# Program to print a Binary triangle <br>**
 
+using System;
 namespace ex1 <br>
 { <br>
     class BinaryTriangle <br>
@@ -30,9 +30,9 @@ namespace ex1 <br>
 ![image](https://user-images.githubusercontent.com/97940332/154631843-cabcb888-1532-4f2f-bed3-253ad3a612d3.png)
 
 
-2.//C# Program to Check Whether the Entered Number is an Amicable Number or Not.
-using System;
+**2.//C# Program to Check Whether the Entered Number is an Amicable Number or Not.**
 
+using System;
 namespace ex2<br>
 {<br>
     class AmicableNumber<br>
@@ -67,9 +67,10 @@ namespace ex2<br>
 }<br>
 ![image](https://user-images.githubusercontent.com/97940332/154632095-30232a1e-0c1a-42a8-8513-d3dcffee1c82.png)
 ![image](https://user-images.githubusercontent.com/97940332/154632183-5baa4312-fa57-4bf0-96b8-368ee620dabd.png)
-3.//C# Program to Illustrate multilevel inheritence with virtual methods  (displaying student details).
-using System;
 
+**3.//C# Program to Illustrate multilevel inheritence with virtual methods  (displaying student details).**
+
+using System;
 namespace ex3<br>
 {<br>
     class PersonalDetails<br>
@@ -169,11 +170,12 @@ namespace ex3<br>
       }<br>
     }<br>
      ![image](https://user-images.githubusercontent.com/97940332/154631537-967c59f3-6374-46ea-b0c8-353f167d84ec.png)
-    4.//C# Program to Create a Gray code
+    
+   ** 4.//C# Program to Create a Gray code**
+    
     using System;
-
-namespace ex4<br>
-{<br>
+    namespace ex4<br>
+    {<br>
     class GrayCode<br>
     {<br>
         static int getGray(int n)<br>
@@ -193,9 +195,9 @@ namespace ex4<br>
 }<br>
 ![image](https://user-images.githubusercontent.com/97940332/154633208-69079708-76f8-4520-a498-13545af1eb86.png)
 
-5.//C# program to calculate volume of 2 boxes and find the resultant volume after addition of 2 boxes by implementing operator overloading.
-using System;
+**5.//C# program to calculate volume of 2 boxes and find the resultant volume after addition of 2 boxes by implementing operator overloading.**
 
+using System;
 namespace ex5<br>
 {<br>
     class Box<br>
@@ -238,7 +240,80 @@ namespace ex5<br>
 ![image](https://user-images.githubusercontent.com/97940332/154633872-d548148e-0658-4e2d-a431-92600e16f3fc.png)
 
 
-    
+**6.//C# program to implement principles of delegates(converting input storing to uppercase first,last and entire string).**
+
+using System;
+
+namespace ex6<br>
+{<br>
+    class Delegates<br>
+    {<br>
+        delegate string UppercaseDelegate(string input);<br>
+        static string UppercaseFirst(string input)<br>
+        {<br>
+            char[] buffer = input.ToCharArray();<br>
+            buffer[0] = char.ToUpper(buffer[0]);<br>
+            return new string(buffer);<br>
+        }<br>
+        static string UppercaseLast(string input)<br>
+        {<br>
+             char[] buffer = input.ToCharArray();<br>
+            buffer[buffer.Length - 1] = Char.ToUpper(buffer[buffer.Length - 1]);<br>
+            return new string(buffer);<br>
+        }<br>
+        static string UppercaseAll(string input)<br>
+        {<br>
+            return input.ToUpper();<br>
+        }<br>
+        static void WriteOutput(string input,UppercaseDelegate  del)<br>
+        {<br>
+            Console.WriteLine("Input String :{0} ", input);<br>
+            Console.WriteLine("Output string :{0} ", del(input));<br>
+        }<br>
+        static void Main()<br>
+        {<br>
+            WriteOutput("tom", new UppercaseDelegate(UppercaseFirst));<br>
+            WriteOutput("tom", new UppercaseDelegate(UppercaseLast));<br>
+            WriteOutput("tom", new UppercaseDelegate(UppercaseAll));<br>
+            Console.ReadLine();<br>
+            }<br>
+      }<br>
+}<br>
+![image](https://user-images.githubusercontent.com/97940332/154635266-afef9f08-b5d5-40f8-9dc3-4d49e6a9319e.png)
+
+
+**7.//C# program to generate register number automatically for 100 students using static constructor**
+  
+  using System;
+   namespace ex7<br>
+   {<br>
+    class RegisterNum<br>
+    {<br>
+        int regNo;<br>
+        static int startNum;<br>
+
+        static RegisterNum()<br>
+        {<br>
+            startNum = 20210000;<br>
+        }<br>
+        RegisterNum()<br>
+        {<br>
+            regNo = ++startNum;<br>
+        }<br>
+        public static void Main(string[]args)<br>
+        {<br>
+            for (int i = 0; i < 100; i++)<br>
+                {<br>
+                RegisterNum student = new RegisterNum();<br>
+                Console.WriteLine("Student {0}:{1}", i + 1, student.regNo);<br>
+                }<br>
+               }<br>
+             }<br>
+           }<br>
+           ![image](https://user-images.githubusercontent.com/97940332/154636098-361d57e9-1cd5-456b-ab9e-0ab89d6decf1.png)
+![image](https://user-images.githubusercontent.com/97940332/154636200-2de71c06-b38f-4207-a810-56b2496f40ad.png)
+
+
     
     
     
