@@ -539,6 +539,12 @@ namespace ex11
 **OUTPUT:**
 
 ![image](https://user-images.githubusercontent.com/97940332/155671200-bf96f4b2-77c8-4d76-8d40-5a1832b66872.png)
+![image](https://user-images.githubusercontent.com/97940332/155671492-7ed6fb8c-2fbf-4d6b-a1b3-15d4eaf17dbe.png)
+![image](https://user-images.githubusercontent.com/97940332/155671822-8d6f6fcf-0b35-4bd9-a810-62719de766a6.png)
+
+
+12.C# program to perform File comparison
+
 
     
     
