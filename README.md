@@ -879,6 +879,99 @@ public class SwapExample<br>
 
 ![image](https://user-images.githubusercontent.com/97940332/156506577-5f0a0340-c845-4979-93e1-c4dca5d91659.png)
 
+**Example1:C# program to convert decimal number to binary.**
+
+using System;
+public class ConversionExample<br>
+{<br>
+    public static void Main(string[] args)<br>
+    {<br>
+        int n, i;<br>
+        int[] a = new int[10];<br>
+        Console.Write("Enter the number to convert: ");<br>
+        n = int.Parse(Console.ReadLine());<br>
+        for (i = 0; n > 0; i++)<br>
+        {<br>
+            a[i] = n % 2;<br>
+            n = n / 2;<br>
+        }<br>
+        Console.Write("Binary of the given number= ");<br>
+        for (i = i - 1; i >= 0; i--)<br>
+        {<br>
+            Console.Write(a[i]);<br>
+        }<br>
+    }<br>
+}<br>
+<br><br><br>
+**OUTPUT:**
+![image](https://user-images.githubusercontent.com/97940332/156511687-1d301de4-a95f-4b1d-8fb8-25b48521c939.png)
+
+
+
+**C# program to convert number into characters.**
+
+using System;
+public class ConversionExample<br>
+{<br>
+    public static void Main(string[] args)<br>
+    {<br>
+        int n, sum = 0, r;<br>
+        Console.Write("Enter the Number= ");<br>
+        n = int.Parse(Console.ReadLine());<br>
+        while (n > 0)<br>
+        {<br>
+            r = n % 10;<br>
+            sum = sum * 10 + r;<br>
+            n = n / 10;<br>
+        }<br>
+        n = sum;<br>
+        while (n > 0)<br>
+        {<br>
+            r = n % 10;<br>
+            switch (r)<br>
+            {<br>
+                case 1:<br>
+                    Console.Write("one ");<br>
+                    break;<br>
+                case 2:<br>
+                    Console.Write("two ");<br>
+                    break;<br>
+                case 3:<br>
+                    Console.Write("three ");<br>
+                    break;<br>
+                case 4:<br>
+                    Console.Write("four ");<br>
+                    break;<br>
+                case 5:<br>
+                    Console.Write("five ");<br>
+                    break;<br>
+                case 6:<br>
+                    Console.Write("six ");<br>
+                    break;<br>
+                case 7:<br>
+                    Console.Write("seven ");<br>
+                    break;<br>
+                case 8:<br>
+                    Console.Write("eight ");<br>
+                    break;<br>
+                case 9:<br>
+                    Console.Write("nine ");<br>
+                    break;<br>
+                case 0:<br>
+                    Console.Write("zero ");<br>
+                    break;<br>
+                default:<br>
+                    Console.Write("tttt ");<br>
+                    break;<br>
+            }//end of switch  <br>    
+            n = n / 10;<br>
+        }//end of while loop   <br>    
+    }<br>
+}<br>
+<br><br><br>
+**OUTPUT:**
+
+![image](https://user-images.githubusercontent.com/97940332/156511145-3c74e8af-b1d7-42fc-aaab-bf6542d17486.png)
 
 
 
