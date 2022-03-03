@@ -456,84 +456,76 @@ namespace ex10<br>
 
 **11.C# program to create a file, check the existence of a file, and Read the contents of the file.**
 
-using System;
-using System.IO;
-
-namespace ex11
-{
-    class FileRead
-    {
-        public static void Main()
-        {
-            string fileName;
-            while (true)
-            {
-                Console.WriteLine("\n --------MENU-------\n");
-                Console.WriteLine("\n 1.Create a File");
-                Console.WriteLine("\n 2.Existence of the File\n");
-                Console.WriteLine("\n 3.Read the contents of the File\n");
-                Console.WriteLine("\n 4.Exit\n");
-                Console.WriteLine("\n Enter your choice:");
-                int ch = int.Parse(Console.ReadLine());
-                switch (ch)
-                {
-                    case 1:
-                        Console.Write("\nEnter the file name to create:");
-                        fileName = Console.ReadLine();
-                        Console.WriteLine("\nWrite the contents to the file:\n");
-                        string r = Console.ReadLine();
-                        using (StreamWriter fileStr = File.CreateText(fileName))
-                        {
-                            fileStr.WriteLine(r);
-                        }
-                        Console.WriteLine("File is created----");
-                        break;
-                    case 2:
-                        Console.WriteLine("\nEnter the file name:");
-                        fileName = Console.ReadLine();
-                        if (File.Exists(fileName))
-                        {
-                            Console.WriteLine("File exists------");
-                        }
-                        else
-                        {
-                            Console.WriteLine("File does not exist in the current directory!");
-                        }
-                        break;
-                    case 3:
-                        Console.Write("Enter the file name to read the contents:\n");
-                        fileName = Console.ReadLine();
-                        if (File.Exists(fileName))
-                        {
-                            using (StreamReader sr = File.OpenText(fileName))
-                            {
-                                string s = " ";
-                                Console.WriteLine("Here is the content of the file:");
-                            while ((s = sr.ReadLine()) != null)
-                            {
-                                Console.WriteLine(s);
-                            }
-                            Console.WriteLine(" ");
-                        }
-                }
-                else
-           
-            {
-                Console.WriteLine("\nFile does not exists");
-            }
-            break;
-                case 4:
-                    Console.WriteLine("Exiting-----");
-                return;
-            default:
-                Console.WriteLine("\n Invalid choice");
-            break;
-        }
-    }
-          
-        }
-    }
-}
+using System;<br>
+using System.IO;<br>
+namespace ex11<br>
+{<br>class FileRead<br>
+{<br>public static void Main()<br>{<br>
+string fileName;<br>
+while (true)<br>
+{<br> Console.WriteLine("\n --------MENU-------\n");<br>
+      Console.WriteLine("\n 1.Create a File");<br>
+      Console.WriteLine("\n 2.Existence of the File\n");<br>
+       Console.WriteLine("\n 3.Read the contents of the File\n");<br>
+       Console.WriteLine("\n 4.Exit\n");<br>
+                Console.WriteLine("\n Enter your choice:");<br>
+                int ch = int.Parse(Console.ReadLine());<br>
+                switch (ch)<br>
+                {<br>
+                    case 1:<br>
+                        Console.Write("\nEnter the file name to create:");<br>
+                        fileName = Console.ReadLine();<br>
+                        Console.WriteLine("\nWrite the contents to the file:\n");<br>
+                        string r = Console.ReadLine();<br>
+                        using (StreamWriter fileStr = File.CreateText(fileName))<br>
+                        {<br>
+                            fileStr.WriteLine(r);<br>
+                        }<br>
+                        Console.WriteLine("File is created----");<br>
+                        break;<br>
+                    case 2:<br>
+                        Console.WriteLine("\nEnter the file name:");<br>
+                        fileName = Console.ReadLine();<br>
+                        if (File.Exists(fileName))<br>
+                        {<br>
+                            Console.WriteLine("File exists------");<br>
+                        }<br>
+                        else<br>
+                        {<br>
+                            Console.WriteLine("File does not exist in the current directory!");<br>
+                        }<br>
+                        break;<br>
+                    case 3:<br>
+                        Console.Write("Enter the file name to read the contents:\n");<br>
+                        fileName = Console.ReadLine();<br>
+                        if (File.Exists(fileName))<br>
+                        {<br>
+                            using (StreamReader sr = File.OpenText(fileName))<br>
+                            {<br>
+                                string s = " ";<br>
+                                Console.WriteLine("Here is the content of the file:");<br>
+                            while ((s = sr.ReadLine()) != null)<br>
+                            {<br>
+                                Console.WriteLine(s);<br>
+                            }<br>
+                            Console.WriteLine(" ");<br>
+                        }<br>
+                }<br>
+                else<br>
+            {<br>
+                Console.WriteLine("\nFile does not exists");<br>
+            }<br>
+            break;<br>
+                case 4:<br>
+                    Console.WriteLine("Exiting-----");<br>
+                return;<br>
+            default:<br>
+                Console.WriteLine("\n Invalid choice");<br>
+            break;<br>
+        }<br>
+    }<br>}<br>
+    }<br>
+}<br>
 
 
 **OUTPUT:**
@@ -544,6 +536,357 @@ namespace ex11
 
 
 12.C# program to perform File comparison
+
+
+**13.C# program to implememnt IComparable Interface**
+
+using System;<br>
+namespace ex13<br>
+{<br>
+class Fraction : IComparable <br>
+    {<br>
+        int z, n;<br>
+        public Fraction(int z,int n)<br>
+        {<br>
+            this.z = z;<br>
+            this.n = n;<br>
+        }<br>
+        public static Fraction operator +(Fraction a,Fraction b)<br>
+        {<br>
+            return new Fraction(a.z * b.n + a.n * b.z, a.n * b.n);<br>
+        }<br>
+        public static Fraction operator*(Fraction a,Fraction b)<br>
+        {<br>
+            return new Fraction(a.z * b.z, a.n * b.n);<br>
+        }<br>
+        public int CompareTo(Object obj)<br>
+        { Fraction f = (Fraction)obj;<br>
+            if ((float)z/n < (float)f.z / f.n)<br>
+                return -1;<br>
+            else if ((float)z / n > (float)f.z / f.n)<br>
+                return 1;<br>
+            else<br>
+                return 0;<br>
+        }<br>
+        public override string ToString()<br>
+        {<br>
+            return z + "/" + n;<br>
+        }<br>
+    }<br>
+    class ICompInterface<br>
+    {<br>
+        public static void Main()<br>
+        {<br>
+            Fraction[] a =<br>
+            {<br>
+                new Fraction(5,2),<br>
+                 new Fraction(29,6),<br>
+                  new Fraction(4,5),<br>
+                   new Fraction(10,8),<br>
+                    new Fraction(34,7),<br>
+            };<br>
+            Array.Sort(a);<br>
+            Console.WriteLine("Implementing the Icomparable Interface in " + "Displaying fractions:");<br>
+            foreach(Fraction f in a)<br>
+            {<br> Console.WriteLine(f + " ");<br>
+            }<br>
+            Console.WriteLine();<br>
+            Console.ReadLine();<br>
+        }<br>
+    }<br>
+}<br>
+
+
+**OUTPUT:**
+
+![image](https://user-images.githubusercontent.com/97940332/156502834-78a9360d-e51c-4d0f-8323-af3fba02d37a.png)
+
+
+**14.C# program to Create thread pools.**
+using System;<br>
+using System.Threading;<br>
+namespace ex14<br>
+{<br>
+    class  ThreadPoolProg<br>
+    {<br>
+        public void ThreadFun1(object obj)<br>
+        {<br>
+            int loop = 0;<br>
+            for (loop = 0; loop <= 4; loop++)<br>
+            {<br>
+                Console.WriteLine("Thread 1 is executing");<br>
+            }<br>
+        }<br>
+        public void ThreadFun2(object obj)<br>
+            { <br>
+            int loop = 0;<br>
+            for( loop=0;loop<=4;loop++)<br>
+                { <br>
+                Console.WriteLine("Thread 2 is executing");<br>
+                }<br>
+            }<br>
+            public static void Main(string[]args)<br>
+            { <br>
+                ThreadPoolProg TP = new ThreadPoolProg();<br>
+            for(int i=0;i<2;i++)<br>
+                {<br>
+                    ThreadPool.QueueUserWorkItem(new WaitCallback(TP.ThreadFun1));<br>
+                    ThreadPool.QueueUserWorkItem(new WaitCallback(TP.ThreadFun2));<br>
+
+                }<br>
+                Console.ReadKey();<br>
+            }<br>
+        }<br>
+    }<br>
+    <br>
+    **OUTPUT:**
+    
+    
+    ![image](https://user-images.githubusercontent.com/97940332/156503350-aedab4f7-457e-43c5-a9b7-77a3777b6244.png)
+
+
+**15.C# Program to demonstrate error handling using Try,Catch and Finally block.
+**
+using System;
+namespace ex15  <br>
+{  <br>
+    class ExceptionHandling  <br>
+    {  <br> 
+        static void Main()  <br>
+        {  <br>
+            Age a = new Age();  <br>
+            try   <br>
+            {  <br>
+                a.DisplayAge();  <br>
+            }  <br>
+            catch(AgeIsNegativeException e)  <br>
+            {  <br>
+                Console.WriteLine("AgeIsNegativeException:{0}", e.Message);  <br>
+            }  <br>
+            finally  <br>
+            {  <br>
+                Console.WriteLine("Execution of Finally block is done.");  <br>
+            }  <br>
+        }  <br>
+    }  <br>
+}  <br>
+public class AgeIsNegativeException : Exception  <br>
+{  <br>
+    public AgeIsNegativeException(string message) : base(message)  <br>
+    {  <br>
+
+    }  <br>
+}  <br>
+public class Age  <br>
+{  <br>
+    int age = 5;  <br>
+    public void DisplayAge()  <br>
+    {  <br>
+        if (age < 0)  <br>
+            throw (new AgeIsNegativeException("Age can not be negative"));  <br>
+        else  <br>
+            Console.WriteLine("Age is:{0}", age);  <br>
+    }  <br>
+}  <br>
+  <br>
+    <br>
+    **OUTPUT:**
+    
+    ![image](https://user-images.githubusercontent.com/97940332/156504011-ba05c92d-614e-44c0-a77c-fca078dbf371.png)
+
+
+**16.C# program to find the fibonacci series.**
+using System; <br>
+public class FibonacciExample <br>
+{ <br>
+    public static void Main(string[] args) <br>
+    { <br>
+        int n1 = 0, n2 = 1, n3, i, number; <br>
+        Console.Write("Enter the number of elements: "); <br>
+        number = int.Parse(Console.ReadLine()); <br>
+        Console.Write(n1 + " " + n2 + " "); <br>    
+        for (i = 2; i < number; ++i) <br> 
+        { <br>
+            n3 = n1 + n2; <br>
+            Console.Write(n3 + " "); <br>
+            n1 = n2; <br>
+            n2 = n3; <br>
+        } <br>
+    } <br>
+} <br>
+ <br>
+  <br>
+  **OUTPUT:**
+  
+  ![image](https://user-images.githubusercontent.com/97940332/156504356-a0303f71-de78-44c7-9be7-0036c58e46c5.png)
+
+
+**17. C# program to Check whether given number is prime or not**
+
+using System;
+public class PrimeNumberExample<br>
+{<br>
+    public static void Main(string[] args)<br>
+    {<br>
+        int n, i, m = 0, flag = 0;<br>
+        Console.Write("Enter the Number to check Prime: ");<br>
+        n = int.Parse(Console.ReadLine())<br>;
+        m = n / 2;<br>
+        for (i = 2; i <= m; i++)<br>
+        {<br>
+            if (n % i == 0)<br>
+            {<br>
+                Console.Write("Number is not Prime number.");<br>
+                flag = 1;<br>
+                break;<br>
+            }<br>
+        }<br>
+        if (flag == 0)<br>
+            Console.Write("Number is Prime number.");<br>
+    }<br>
+}<br>
+<br>
+<br>
+**OUTPUT:**
+
+![image](https://user-images.githubusercontent.com/97940332/156504698-26a29b51-8c9f-4fdb-9da4-2ca28fe5d93a.png)
+![image](https://user-images.githubusercontent.com/97940332/156504741-70e2356a-99dd-47dc-9fb8-399b1ec65c3b.png)
+
+
+**18.C# program to check whether the given number is palindrom or not.**
+
+
+using System;
+public class PalindromeExample<br>
+{<br>
+    public static void Main(string[] args)<br>
+    {<br>
+        int n, r, sum = 0, temp;<br>
+        Console.Write("Enter the Number: ");<br>
+        n = int.Parse(Console.ReadLine());<br>
+        temp = n;<br>
+        while (n > 0)<br>
+        {<br>
+            r = n % 10;<br>
+            sum = (sum * 10) + r;<br>
+            n = n / 10;<br>
+        }<br>
+        if (temp == sum)<br>
+            Console.Write("Number is Palindrome.");<br>
+        else<br>
+            Console.Write("Number is not Palindrome");<br>
+    }<br>
+}<br>
+<br><br><br>
+**OUTPUT:**
+
+![image](https://user-images.githubusercontent.com/97940332/156505144-2a4970b5-8303-496f-a4e3-7796abb1681e.png)
+![image](https://user-images.githubusercontent.com/97940332/156505205-ef1404a4-7030-4b57-a6d0-cae216874d1e.png)
+
+
+**19.C# program to find a factorial of a number.**
+
+using System;
+public class FactorialExample<br>
+{<br>
+    public static void Main(string[] args)<br>
+    {<br>
+        int i, fact = 1, number;<br>
+        Console.Write("Enter any Number: ");<br>
+        number = int.Parse(Console.ReadLine());<br>
+        for (i = 1; i <= number; i++)<br>
+        {<br>
+            fact = fact * i;<br>
+        }<br>
+        Console.Write("Factorial of " + number + " is: " + fact);<br>
+    }<br>
+}<br><br><br>**OUTPUT:**
+
+
+![image](https://user-images.githubusercontent.com/97940332/156505563-a763466c-be14-4e0b-9b04-f402661320d3.png)
+
+**20.C# program to find sum of digits in given number.**
+
+using System;
+public class SumExample<br>
+{<br>
+    public static void Main(string[] args)<br>
+    {<br>
+        int n, sum = 0, m;<br>
+        Console.Write("Enter a number: ");<br>
+        n = int.Parse(Console.ReadLine());<br>
+        while (n > 0)<br>
+        {<br>
+            m = n % 10;<br>
+            sum = sum + m;<br>
+            n = n / 10;<br>
+        }<br>
+        Console.Write("Sum is= " + sum);<br>
+    }<br>
+}<br>
+<br><br><br>
+**OUTPUT:**
+![image](https://user-images.githubusercontent.com/97940332/156505974-3c19c344-f617-4626-8fb9-cc491f48ad19.png)
+
+
+**21.C# program to reverse a number.**
+
+using System;
+public class ReverseExample<br>
+{<br>
+    public static void Main(string[] args)<br>
+    {<br>
+        int n, reverse = 0, rem;<br>
+        Console.Write("Enter a number: ");<br>
+        n = int.Parse(Console.ReadLine());<br>
+        while (n != 0)<br>
+        {<br>
+            rem = n % 10;<br>
+            reverse = reverse * 10 + rem;<br>
+            n /= 10;<br>
+        }<br>
+        Console.Write("Reversed Number: " + reverse);<br>
+    }<br>
+}<br>
+<br><br><br>
+**OUTPUT:**
+
+![image](https://user-images.githubusercontent.com/97940332/156506255-d80ddfdc-f795-4136-a53f-11ca476e5eaa.png)
+
+
+**22.C# program to swap 2 numbers.**
+
+
+using System;
+public class SwapExample<br>
+{<br>
+    public static void Main(string[] args)<br>
+    {<br>
+        int a, n;// = 5,<br>
+        int b;// = 10;<br>
+        Console.WriteLine("Enter 2 numbers:");<br>
+        a = int.Parse(Console.ReadLine());<br>
+        b = int.Parse(Console.ReadLine());<br>
+        Console.WriteLine("Before swap a= " + a + " b= " + b);<br>
+        a = a * b; //a=50 (5*10) <br>     
+        b = a / b; //b=5 (50/10) <br>     
+        a = a / b; //a=10 (50/5)   <br> 
+        Console.Write("After swap a= " + a + " b= " + b);<br>
+    }<br>
+}<br>
+<br><br><br>
+**OUTPUT:**
+
+![image](https://user-images.githubusercontent.com/97940332/156506577-5f0a0340-c845-4979-93e1-c4dca5d91659.png)
+
+
+
+
+
+
+
+
+
 
 
     
