@@ -974,10 +974,102 @@ public class ConversionExample<br>
 ![image](https://user-images.githubusercontent.com/97940332/156511145-3c74e8af-b1d7-42fc-aaab-bf6542d17486.png)
 
 
+**Example3:C# program to create alphabet triangle.**
+
+using System;
+public class PrintExample<br>
+{<br>
+    public static void Main(string[] args)<br>
+    {<br>
+        char ch = 'A';<br>
+        int i, j, k, m;<br>
+        for (i = 1; i <= 5; i++)<br>
+        {<br>
+            for (j = 5; j >= i; j--)<br>
+                Console.Write(" ");<br>
+            for (k = 1; k <= i; k++)<br>
+                Console.Write(ch++);<br>
+            ch--;<br>
+            for (m = 1; m < i; m++)<br>
+                Console.Write(--ch);<br>
+            Console.Write("\n");<br>
+            ch = 'A';<br>
+        }<br>
+    }<br>
+}<br>
+<br><br><br>
+
+**OUTPUT:**
 
 
+![image](https://user-images.githubusercontent.com/97940332/156514801-d966d0fb-eeec-4c68-a075-507ef69d9883.png)
 
 
+**Example4:C# program to create digits triangle.**
+
+using System;<br>
+public class PrintExample<br>
+{<br>
+    public static void Main(string[] args)<br>
+    {<br>
+        int i, j, k, l, n;<br>
+        Console.Write("Enter the Range=");<br>
+        n = int.Parse(Console.ReadLine());<br>
+        for (i = 1; i <= n; i++)<br>
+        {<br>
+            for (j = 1; j <= n - i; j++)<br>
+            {<br>
+                Console.Write(" ");<br>
+            }<br>
+            for (k = 1; k <= i; k++)<br>
+            {<br>
+                Console.Write(k);<br>
+            }<br>
+            for (l = i - 1; l >= 1; l--)<br>
+            {<br>
+                Console.Write(l);<br>
+            }<br>
+            Console.Write("\n");<br>
+        }<br>
+    }<br>
+}<br>
+
+<br><br><br>
+**OUTPUT:**
+
+![image](https://user-images.githubusercontent.com/97940332/156515296-94001ad1-20c1-4d5c-9dad-c0c2c2f6e99b.png)
+
+
+**Example5:C# program to fibonacci triangle.**
+
+using System;
+public class PrintExample<br>
+{<br>
+    public static void Main(string[] args)<br>
+    {<br>
+        int a = 0, b = 1, i, c, n, j;<br>
+        Console.Write("Enter the limit: ");<br>
+        n = int.Parse(Console.ReadLine());<br>
+        for (i = 1; i <= n; i++)<br>
+        {<br>
+            a = 0;<br>
+            b = 1;<br>
+            Console.Write(b + "\t");<br>
+            for (j = 1; j < i; j++)<br>
+            {<br>
+                c = a + b;<br>
+                Console.Write(c + "\t");<br>
+                a = b;<br>
+                b = c;<br>
+            }<br>
+            Console.Write("\n");<br>
+        }<br>
+    }<br>
+}<br>
+<br><br><br>
+
+**OUTPUT:**
+![image](https://user-images.githubusercontent.com/97940332/156515644-47812d34-f4b2-4283-932c-cc883c896cd1.png)
 
 
 
