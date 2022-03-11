@@ -1107,7 +1107,116 @@ public class PrintExample<br>
 **OUTPUT:**
 ![image](https://user-images.githubusercontent.com/97940332/156515644-47812d34-f4b2-4283-932c-cc883c896cd1.png)
 
+**23.C# Program to Convert Digit to Words.**
 
+using System;<br>
+using System.Collections.Generic;<br>
+using System.ComponentModel;<br>
+using System.Data;<br>
+using System.Drawing;<br>
+using System.Linq;<br>
+using System.Text;<br>
+using System.Threading.Tasks;<br>
+using System.Windows.Forms;<br>
+
+namespace WindowsFormsApp4<br>
+{<br>
+    public partial class Form1 : Form<br>
+    {<br>
+        public Form1()<br>
+        {<br>
+            InitializeComponent();<br>
+        }<br>
+
+        private void textBox1_TextChanged(object sender, EventArgs e)<br>
+        {<br>
+
+        }<br>
+
+        private void label1_Click(object sender, EventArgs e)<br>
+        {<br> }<br>
+
+        private void button1_Click(object sender, EventArgs e)<br>
+        {<br>
+            lbl_words.Text = NumtoWord(long.Parse(txt_num.Text));<br>
+        }<br>
+        public string NumtoWord(long number)<br>
+        {<br>
+            string word = "";<br>
+            if (number == 0)<br>
+            {<br>
+                return "Zero";<br>
+            }<br>
+            if (number < 0)<br>
+            {<br>
+                return "Minus" + Math.Abs(number);<br>
+            }<br>
+            if (number / 10000000 > 0)<br>
+            {<br>
+                word += NumtoWord(number / 10000000) + "Corer";<br>
+                number %= 10000000;<br>
+            }<br>
+
+        if (number / 100000 > 0)<br>
+            {<br>
+                word += NumtoWord(number / 100000) + "Lacs";<br>
+                number %= 100000;<br>
+            }<br>
+            if (number / 1000 > 0)<br>
+            {<br>
+                word += NumtoWord(number / 1000) + "Thousand";<br>
+                number %= 1000;<br>
+            }<br>
+            if (number / 100 > 0)<br>
+            {<br>
+                word += NumtoWord(number / 100) + "Hundred";<br>
+                number %= 100;<br>
+            }<br>
+            if (number > 0)<br>
+            {<br>
+                string[] units = new string[] { "Zero", "One", "Two", "Three", "Four", "Five", "Six",
+"Seven", "Eight", "Nine", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen",
+"Seventeen", "Eighteen", "Nineteen" };<br>
+                string[] Tens = new string[] { "Zero", "Ten", "Twenty", "Thirty", "Fourty", "Fifty",
+"Sixty", "Seventy", "Eighty", "Ninety" };<br>
+                if (number < 20)<br>
+                {<br>
+                    word += units[number];<br>
+                }<br>
+                else<br>
+                {<br>
+                    word += Tens[number / 10];<br>
+                    if (number % 10 > 0)<br>
+                    {<br>
+                        word += units[number % 10];<br>
+                    }<br>
+                }<br>
+            }<br>
+            return word;<br>
+
+        }<br>
+    }<br>
+}<br>
+
+<br><br><br><br>
+
+![image](https://user-images.githubusercontent.com/97940332/157816687-ec4d7eaa-52b5-45b2-b435-5e1db1bebdb5.png)
+
+
+
+
+
+
+
+
+
+
+
+
+**OUTPUT:**
+
+
+![image](https://user-images.githubusercontent.com/97940332/157816839-3a700b01-b879-4320-b7a9-4a0f2f726a14.png)
 
 
     
