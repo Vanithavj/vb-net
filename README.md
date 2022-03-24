@@ -1390,6 +1390,11 @@ namespace ex27<br>
 
 ![image](https://user-images.githubusercontent.com/97940332/158940529-95973974-c261-4fca-bda2-f36f35f6c928.png)
 
+
+28.
+![image](https://user-images.githubusercontent.com/97940332/159858746-9502a8ed-b304-48b7-b459-85fa7ccafd6a.png)
+
+
     
     
     
