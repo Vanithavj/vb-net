@@ -1520,7 +1520,114 @@ namespace EX28<br>
 
     
     
-    
+   **7. Develop an application to create a notepad. **
+
+using System;<br> 
+using System.IO; <br>
+using System.Windows.Forms; <br>
+using System.Drawing; <br>
+namespace ex14<br>
+{<br>
+    public partial class Form1 : Form<br>
+    {<br>
+        private string fileName;<br>
+        private RichTextBox txtContent;<br>
+        private ToolBar toolBar;<br>
+        internal Form1()<br>
+        {<br>
+            fileName = null;<br>
+            initializeComponents();<br>
+        }<br>
+        void initializeComponents()<br>
+        {<br>
+            this.Text = "My notepad";<br>
+            this.MinimumSize = new Size(600, 450);<br>
+            this.FormClosing += new FormClosingEventHandler(NotepadClosing); this.MaximizeBox = true;<br>
+            toolBar = new ToolBar();<br>
+            toolBar.Font = new Font("Arial", 16);<br>
+            toolBar.Padding = new Padding(4);<br>
+            toolBar.ButtonClick += new ToolBarButtonClickEventHandler(toolBarClicked);<br>
+            ToolBarButton toolBarButton1 = new ToolBarButton(); <br>
+            ToolBarButton toolBarButton2 = new ToolBarButton();<br>
+            ToolBarButton toolBarButton3 = new ToolBarButton();<br>
+            toolBarButton1.Text = "New";<br>
+            toolBarButton2.Text = "Open";<br>
+            toolBarButton3.Text = "Save";<br>
+            toolBar.Buttons.Add(toolBarButton1);<br>
+            toolBar.Buttons.Add(toolBarButton2);<br>
+            toolBar.Buttons.Add(toolBarButton3);<br>
+            txtContent = new RichTextBox();<br>
+            txtContent.Size = this.ClientSize;<br>
+            txtContent.Height -= toolBar.Height;<br>
+            txtContent.Top = toolBar.Height;<br>
+            txtContent.Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Bottom;<br>
+            txtContent.Font = new Font("Arial", 16);<br>
+            txtContent.AcceptsTab = true;<br>
+            txtContent.Padding = new Padding(8);<br>
+
+            this.Controls.Add(toolBar);<br>
+            this.Controls.Add(txtContent);<br>
+        }<br>
+        private void toolBarClicked(Object sender, ToolBarButtonClickEventArgs e)
+        {
+            saveFile();
+            switch (toolBar.Buttons.IndexOf(e.Button))
+            {
+                case 0:
+                    this.Text += "My notepad";
+                    txtContent.Text = string.Empty;
+                    fileName = null;
+                    break;
+                case 1:
+                    OpenFileDialog openDlg = new OpenFileDialog();
+                    if (DialogResult.OK == openDlg.ShowDialog())
+                    {
+                        fileName = openDlg.FileName;
+                        txtContent.LoadFile(fileName);
+                        this.Text = "My notepad " + fileName;
+                    }
+                    break;
+            }
+        }
+        void saveFile()
+        {
+            if (fileName == null)
+            {
+                SaveFileDialog saveDlg = new SaveFileDialog();
+                if (DialogResult.OK == saveDlg.ShowDialog())
+                {
+                    fileName = saveDlg.FileName;
+                    this.Text += " " + fileName;
+                }
+            }
+            else
+            {
+                txtContent.SaveFile(fileName, RichTextBoxStreamType.RichText);
+            }
+        }
+        
+        private void NotepadClosing(Object sender, FormClosingEventArgs e)
+        {
+            saveFile();
+            
+        }
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+       
+    }
+}
+
+
+**OUTPUT:**
+![image](https://user-images.githubusercontent.com/97940767/160996988-d304ad7b-506e-4354-b74c-5cb5f988497d.png)
+![image](https://user-images.githubusercontent.com/97940767/160997173-0dc28328-3c04-4377-a04b-5a8a81864d9b.png)
+![image](https://user-images.githubusercontent.com/97940767/160997298-14eb7e84-1e36-4a80-a1d8-9fde2acd621b.png)
+
+
+
+ 
     
     
     
