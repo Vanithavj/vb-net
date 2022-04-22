@@ -571,6 +571,13 @@ namespace ex12<br>
 }<br><br><br><br>
 **OUTPUT:**
 
+![image](https://user-images.githubusercontent.com/97940767/154637493-20aa1b32-b387-4c13-86bf-c998bdf3b492.png)
+![image](https://user-images.githubusercontent.com/97940767/154637546-e390a333-2cfb-430f-89f9-5ef839e7570f.png)
+![image](https://user-images.githubusercontent.com/97940767/154637612-6be5f45c-15dd-4c0c-a28f-3165edb8b652.png)
+![image](https://user-images.githubusercontent.com/97940767/154637838-20eb6345-511e-4169-86ab-f0f030d3ee36.png)
+![image](https://user-images.githubusercontent.com/97940767/154637902-a7528741-ce03-4ae4-86fc-f33c2709cfb1.png)
+![image](https://user-images.githubusercontent.com/97940767/154637983-8507a495-0559-4e38-94ef-24958184f8cf.png)
+
 
 
 
