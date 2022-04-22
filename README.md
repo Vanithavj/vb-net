@@ -1114,6 +1114,11 @@ public class PrintExample<br>
 **OUTPUT:**
 ![image](https://user-images.githubusercontent.com/97940332/156515644-47812d34-f4b2-4283-932c-cc883c896cd1.png)
 
+
+
+
+                                        **PART-B**
+
 **23.C# Program to Convert Digit to Words.**
 
 using System;<br>
